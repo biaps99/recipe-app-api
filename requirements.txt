@@ -1,0 +1,4 @@
+Django>=3.2.4,<3.3
+djangorestframework>=3.12.4,<3.13
+pytest>=7.2.1,<7.3.0
+pytest-custom-exit-code>=0.3.0,<0.4.0
