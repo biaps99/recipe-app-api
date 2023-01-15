@@ -5,7 +5,7 @@ on: [push]
 
 jobs:
   test-lint:
-    name: Test and Lint
+    name: Format, Lint and Test
     runs-on: ubuntu-20.04
     steps:
       - name: Login to Docker Hub
@@ -18,10 +18,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Format
-        run: docker-compose run --rm app sh -c "black app/ --exclude='migrations/'"
+        run: docker-compose run --rm app sh -c "black app/ --exclude='migrations/' --line-length=88"
 
       - name: Lint
         run: docker-compose run --rm app sh -c "flake8"
 
       - name: Test
-        run: docker-compose run --rm app sh -c "pytest -p no:cacheprovider --suppress-no-test-exit-code"
+        run: docker-compose run --rm app sh -c "pytest --suppress-no-test-exit-code"

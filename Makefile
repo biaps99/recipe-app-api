@@ -1,5 +1,5 @@
 black:
-	docker-compose run --rm app sh -c "black app/ --exclude='migrations/'"
+	docker-compose run --rm app sh -c "black app/ --exclude='migrations/' --line-length=88"
 
 flake:
 	docker-compose run --rm app sh -c "flake8"
